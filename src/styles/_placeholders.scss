@@ -1,0 +1,29 @@
+@import './colors';
+
+// %list {
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//   }
+  
+  %button {
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+
+    border-radius: 4px;
+    padding: 12px 24px;
+    background-color: $teal;
+    color: $white;
+    font-weight: 500;
+  
+    &:hover,
+    &:focus {
+      background-color: orange;
+    }
+  
+    &:active {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
