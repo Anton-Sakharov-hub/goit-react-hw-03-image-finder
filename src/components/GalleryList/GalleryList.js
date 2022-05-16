@@ -1,27 +1,44 @@
-// import { Component  } from 'react';
+
 import style from './GalleryList.module.scss';
+import GalleryItem from '../GalleryItem';
+
+// function Anchor () {
+//     const ref = useRef();
+
+//     useEffect(() => {
+//         console.log(ref.current);
+//         ref.current.scrollIntoView({
+//             behavior: 'smooth',
+//             block: 'start',
+//           });
+//     }, []);
+
+//     return (
+//         <li ref={ref} />
+//     )
+// }
 
 function GalleryList (props) {
-    const {data, openModal} = props;
+    const {data, step, openModal} = props;
 
-    const handleClick = (modalData) => () => {
-        openModal(modalData);
-    }
+
 
     return (
         <ul className={style.GalleryList}>
-            {data && data.map(({id, webformatURL, tags, largeImageURL}) => {
+            {data && data.map(({id, webformatURL, tags, largeImageURL}, index, array) => {
                 return (
-                    <li key={id} className={style.GalleryItem}>
-                        <div className={style.GalleryItem__thumb}>
-                            <img className={style.GalleryItem__img} src={webformatURL} alt={tags} onClick={handleClick({largeImageURL, tags})} />
-                        </div>
-                    </li>
+                    <GalleryItem 
+                        key={id} 
+                        anchor={array.length - step + 1 === index + 1} 
+                        options={{id, webformatURL, tags, largeImageURL}} 
+                        openModal={openModal}
+                    />
                 )
             })}
         </ul>
     )
 }
+
 
 export default GalleryList;
 

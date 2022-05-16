@@ -29,12 +29,13 @@ class Modal extends Component {
         }
     }
 
+    
     render() {
         return createPortal(
             (
                 <div className={s.Modal__backdrop} onClick={this.onBackdropClick}>
-                    <div className={s.blur}></div>
                     <div className={s.Modal__content}>
+                        <div className={s.preloader}><span>Loading...</span></div>
                         {this.props.children}
                     </div>
                 </div>

@@ -28,7 +28,7 @@ class SearchFrom extends Component {
         const {value} = this.state;
 
         return (
-            <header className={style.Searchbar}>
+            <div className={style.Searchbar}>
                 <form>
                     <div className={style.SearchForm__wrap}>
                         <input
@@ -50,7 +50,7 @@ class SearchFrom extends Component {
                         </button> */}
                     </div>
                 </form>
-            </header>
+            </div>
         )
     }
 }
